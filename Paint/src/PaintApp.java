@@ -20,5 +20,4 @@ public class PaintApp {
 		frame.setBounds(0, 0, 500, 500);
 		frame.setVisible(true);
 	}
-
 }
