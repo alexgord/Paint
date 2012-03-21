@@ -12,6 +12,7 @@ public class ToolBox extends JToolBar
 	private Color fgColor, bgColor;
 	private CanvasComponent canvas;
 	private ButtonGroup group;
+	private Tool currentTool;
 	
 	public ToolBox()
 	{
@@ -89,6 +90,7 @@ public class ToolBox extends JToolBar
 			break;
 		case RECTANGLE:
 			System.out.println("RECTANGLE!");
+			currentTool = new RectangleTool(this);
 			break;
 		case POLYLINE: 
 			System.out.println("POLYLINE!!");

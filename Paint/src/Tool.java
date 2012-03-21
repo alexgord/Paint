@@ -1,8 +1,9 @@
+import java.awt.Canvas;
 import java.awt.event.MouseEvent;
 /*
  * Superclass to all Tool in the ToolBox.
  */
-abstract public class Tool implements Paintable
+abstract public class Tool// implements Paintable
 {
 	final protected ToolBox tbox;
 	public Tool(ToolBox tbox)
