@@ -46,6 +46,7 @@ public class ToolBox extends JToolBar
 		
 		ColorButton background = new ColorButton(bgColor, 1, this);
 		this.add(background);
+		
 	}
 	
 	public Color getFgColor()
@@ -99,5 +100,10 @@ public class ToolBox extends JToolBar
 			System.out.println("POLYGON!!");
 			break;
 		}
+	}
+	
+	public Tool getCurrentTool()
+	{
+		return currentTool;
 	}
 }
