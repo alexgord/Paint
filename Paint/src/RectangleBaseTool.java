@@ -1,10 +1,4 @@
-import java.awt.Frame;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.PointerInfo;
 import java.awt.event.MouseEvent;
-
-import javax.swing.SwingUtilities;
 
 
 public abstract class RectangleBaseTool extends Tool
@@ -22,7 +16,6 @@ public abstract class RectangleBaseTool extends Tool
 		x2 = 0;
 		y1 = 0;
 		y2 = 0;
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getX1() {
@@ -48,14 +41,11 @@ public abstract class RectangleBaseTool extends Tool
 		y1=e.getY();
 		System.out.println("getx: " + e.getX());
 		System.out.println("getxonscreen: " + e.getXOnScreen());
-		//x1 = (int) MouseInfo.getPointerInfo().getLocation().getX();
-		//y1 = (int) MouseInfo.getPointerInfo().getLocation().getY();
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -64,25 +54,19 @@ public abstract class RectangleBaseTool extends Tool
 	{
 		x2=e.getX();
 		y2=e.getY();
-		//x2 = (int) MouseInfo.getPointerInfo().getLocation().getX();
-		//y2 = (int) MouseInfo.getPointerInfo().getLocation().getY();
 		System.out.println("inside rectanglebasetool mouseRealeased");
 		this.addToPicture();
-		
-		//tbox.setCurrentTool(null);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 	

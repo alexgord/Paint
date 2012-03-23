@@ -1,7 +1,7 @@
-public class RectangleTool extends RectangleBaseTool
+public class EllipseTool extends RectangleBaseTool
 {
-	private Rectangle rec;
-	public RectangleTool(ToolBox tbox)
+	private Ellipse eli;
+	public EllipseTool(ToolBox tbox)
 	{
 		super(tbox);
 	}
@@ -14,9 +14,11 @@ public class RectangleTool extends RectangleBaseTool
 		int y = Math.min(this.getY1(), this.getY2());
 		int height = Math.max(this.getY1(), this.getY2()) - Math.min(this.getY1(), this.getY2());
 		int width = Math.max(this.getX1(), this.getX2()) - Math.min(this.getX1(), this.getX2());			
-		rec = new Rectangle(x, y, height, width, tbox.getBGColor(), tbox.getFGColor(),1);
-		tbox.getCanvas().add(rec);
+		eli = new Ellipse(x, y, height, width, tbox.getBGColor(), tbox.getFGColor(),1);
+		tbox.getCanvas().add(eli);
 		this.canvasRepaint();
 		System.out.println("inside rectangle tool addtopicture");
+
 	}
+
 }

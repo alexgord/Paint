@@ -1,9 +1,8 @@
-import java.awt.Canvas;
 import java.awt.event.MouseEvent;
 /*
  * Superclass to all Tool in the ToolBox.
  */
-abstract public class Tool// implements Paintable
+abstract public class Tool
 {
 	final protected ToolBox tbox;
 	public Tool(ToolBox tbox)
@@ -11,7 +10,8 @@ abstract public class Tool// implements Paintable
 		this.tbox = tbox;
 	}
 	
-	public void canvasRepaint() {
+	public void canvasRepaint()
+	{
 		tbox.getCanvas().repaint();
 	}
 	/*

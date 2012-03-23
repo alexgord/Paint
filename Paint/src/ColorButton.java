@@ -14,6 +14,10 @@ import javax.swing.JColorChooser;
  */
 public class ColorButton extends JButton {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ToolBox tbox;
 	private int type;
 	private Color color;
@@ -48,12 +52,12 @@ public class ColorButton extends JButton {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(type == ToolBox.FOREGROUND) {
-				color = JColorChooser.showDialog(tbox,"Choose A Color", tbox.getFgColor());
-				tbox.setFgColor(color);
+				color = JColorChooser.showDialog(tbox,"Choose A Color", tbox.getFGColor());
+				tbox.setFGColor(color);
 			}	
 			else {
-				color = JColorChooser.showDialog(tbox,"Choose A Color", tbox.getBgColor());
-				tbox.setBgColor(color);
+				color = JColorChooser.showDialog(tbox,"Choose A Color", tbox.getBGColor());
+				tbox.setBGColor(color);
 			}
 			tbox.repaint();
 		}

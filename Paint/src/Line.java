@@ -3,7 +3,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-
 public class Line implements Paintable
 {
 	private int x1;
@@ -28,7 +27,6 @@ public class Line implements Paintable
 	 ****************************************************************************/
 	public void paint(Graphics g)
 	{
-		// TODO Auto-generated method stub
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
@@ -36,5 +34,4 @@ public class Line implements Paintable
 		g2.drawLine(x1, y1, x2, y2);		
 
 	}
-
 }

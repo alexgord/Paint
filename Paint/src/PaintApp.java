@@ -1,9 +1,6 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.JToolBar;
-
 
 public class PaintApp {
 
@@ -23,8 +20,6 @@ public class PaintApp {
 		canvas.setTbox(tbox);
 		tbox.setCanvas(canvas, frame);
 		frame.add(tbox.getCanvas());
-		//Tool testTool = new Tool(ToolType.RECTANGLE);
-		//testTool.addToPicture();
 		frame.add(canvas, BorderLayout.CENTER);		
 		frame.setVisible(true);
 	}

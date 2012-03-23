@@ -1,6 +1,5 @@
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.Frame;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
@@ -9,6 +8,10 @@ import javax.swing.JToolBar;
 
 public class ToolBox extends JToolBar
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	final public static int FOREGROUND = 0;
 	final public static int BACKGROUND = 1;
 	private Color fgColor, bgColor;
@@ -17,11 +20,13 @@ public class ToolBox extends JToolBar
 	private Tool currentTool;
 	private JFrame frame;
 	
-	public JFrame getFrame() {
+	public JFrame getFrame()
+	{
 		return frame;
 	}
 
-	public void setFrame(JFrame frame) {
+	public void setFrame(JFrame frame)
+	{
 		this.frame = frame;
 	}
 
@@ -52,33 +57,32 @@ public class ToolBox extends JToolBar
 		group.add(rectangle);
 		this.add(rectangle);
 		
-		ColorButton foreground = new ColorButton(fgColor, 1, this);
+		ColorButton foreground = new ColorButton(fgColor, FOREGROUND, this);
 		this.add(foreground);
 		
-		ColorButton background = new ColorButton(bgColor, 1, this);
+		ColorButton background = new ColorButton(bgColor, BACKGROUND, this);
 		this.add(background);
-		
-		//this.canvas = new CanvasComponent(null);
 	}
 	
-	public Color getFgColor()
+	public Color getFGColor()
 	{
 		return fgColor;
 	}
 	
-	public void setFgColor(Color fgColor)
+	public void setFGColor(Color fgColor)
 	{
 		this.fgColor = fgColor;
 	}
 	
-	public Color getBgColor()
+	public Color getBGColor()
 	{
 		return bgColor;
 	}
 	
-	public void setBgColor(Color bgColor)
+	public void setBGColor(Color bgColor)
 	{
 		this.bgColor = bgColor;
+		System.out.println("in toolbox setBGColor " + bgColor.toString());
 	}
 	
 	public CanvasComponent getCanvas()
@@ -98,9 +102,11 @@ public class ToolBox extends JToolBar
 		{
 		case LINE: 
 			System.out.println("LINE!");
+			currentTool = new LineTool(this);
 			break;
 		case ELLIPSE:
 			System.out.println("ELLIPSE!!");
+			currentTool = new EllipseTool(this);
 			break;
 		case RECTANGLE:
 			System.out.println("RECTANGLE!");
@@ -108,6 +114,7 @@ public class ToolBox extends JToolBar
 			break;
 		case POLYLINE: 
 			System.out.println("POLYLINE!!");
+			currentTool = new PolyLineTool(this);
 			break;
 		case POLYGON:
 			System.out.println("POLYGON!!");

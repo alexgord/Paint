@@ -11,6 +11,10 @@ import javax.swing.JToggleButton;
  */
 public class ToolToggleButton extends JToggleButton {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ToolType type;
 	private ToolBox tbox;  // an alias to the ToolBox object into which we place this ToggleButton
 
