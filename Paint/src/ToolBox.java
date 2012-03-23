@@ -1,7 +1,9 @@
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
 import javax.swing.JToolBar;
 
 
@@ -13,7 +15,16 @@ public class ToolBox extends JToolBar
 	private CanvasComponent canvas;
 	private ButtonGroup group;
 	private Tool currentTool;
+	private JFrame frame;
 	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	public ToolBox()
 	{
 		fgColor = Color.black;
@@ -47,6 +58,7 @@ public class ToolBox extends JToolBar
 		ColorButton background = new ColorButton(bgColor, 1, this);
 		this.add(background);
 		
+		this.canvas = new CanvasComponent(null);
 	}
 	
 	public Color getFgColor()
@@ -74,9 +86,10 @@ public class ToolBox extends JToolBar
 		return canvas;
 	}
 	
-	public void setCanvas(CanvasComponent canvas)
+	public void setCanvas(CanvasComponent canvas, JFrame frame)
 	{
 		this.canvas = canvas;
+		this.frame = frame;
 	}
 
 	public void setCurrentTool(ToolType type)

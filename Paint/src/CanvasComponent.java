@@ -24,7 +24,7 @@ public class CanvasComponent extends JComponent
 	public CanvasComponent(Paintable paintable)
 	{
 		super();
-		this.paintable = paintable;
+		this.paintable = paintable;		
 		this.addMouseListener(new MouseEventListener());
 		this.addMouseMotionListener(new MouseMotionEventListener());
 		System.out.println("in CanvasComponent constructor");
@@ -44,8 +44,12 @@ public class CanvasComponent extends JComponent
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
-			tbox.getCurrentTool().mouseClicked(e);
+			if (tbox.getCurrentTool() != null)
+			{
+				tbox.getCurrentTool().mouseClicked(e);
+			}
 			System.out.println("inside mouseClicked");
+			System.out.println(tbox.getCurrentTool() != null);
 		}
 
 		@Override
@@ -65,14 +69,20 @@ public class CanvasComponent extends JComponent
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			tbox.getCurrentTool().mousePressed(e);
+			if (tbox.getCurrentTool() != null)
+			{
+				tbox.getCurrentTool().mousePressed(e);
+			}
 			System.out.println("inside mousePressed");
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			tbox.getCurrentTool().mouseReleased(e);
+			if (tbox.getCurrentTool() != null)
+			{
+				tbox.getCurrentTool().mouseReleased(e);
+			}
 			System.out.println("inside mouseReleased");
 		}
 		
@@ -84,14 +94,20 @@ public class CanvasComponent extends JComponent
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			// TODO Auto-generated method stub
-			tbox.getCurrentTool().mouseDragged(e);
+			if (tbox.getCurrentTool() != null)
+			{
+				tbox.getCurrentTool().mouseDragged(e);
+			}
 			System.out.println("inside mouseDragged");
 		}
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
 			// TODO Auto-generated method stub
-			tbox.getCurrentTool().mouseMoved(e);
+			if (tbox.getCurrentTool() != null)
+			{
+				tbox.getCurrentTool().mouseMoved(e);
+			}
 			System.out.println("inside mouseMoved");
 		}
 	}
