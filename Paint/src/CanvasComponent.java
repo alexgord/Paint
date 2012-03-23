@@ -2,17 +2,21 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import javax.swing.JComponent;
 
 
 public class CanvasComponent extends JComponent
 {
 	private static final long serialVersionUID = 1L;
-	private Paintable paintable;
+	private ArrayList<Paintable> paintables;
 	private ToolBox tbox;
-	
+
+	private static int id = 0;
+	private int currId;
+
 	public ToolBox getTbox() {
 		return tbox;
 	}
@@ -21,23 +25,32 @@ public class CanvasComponent extends JComponent
 		this.tbox = tbox;
 	}
 
-	public CanvasComponent(Paintable paintable)
+	public CanvasComponent() //Paintable paintable)
 	{
 		super();
-		this.paintable = paintable;		
+		this.currId = id++;
+		this.paintables = new ArrayList<Paintable>();		
 		this.addMouseListener(new MouseEventListener());
 		this.addMouseMotionListener(new MouseMotionEventListener());
 		System.out.println("in CanvasComponent constructor");
+	}
+
+	public void add(Paintable p) {
+		paintables.add(p);
 	}
 
 	@Override
 	protected void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		if(paintable != null)
-			paintable.paint(g);
+		if(paintables != null)
+		{
+			Iterator<Paintable> it = paintables.iterator();
+			while(it.hasNext()) 
+				it.next().paint(g);
+		}
 	}
-	
+
 	public class MouseEventListener implements MouseListener
 	{
 
@@ -73,7 +86,7 @@ public class CanvasComponent extends JComponent
 			{
 				tbox.getCurrentTool().mousePressed(e);
 			}
-			System.out.println("inside mousePressed");
+			System.out.println("inside mousePressed " + currId);
 		}
 
 		@Override
@@ -83,11 +96,11 @@ public class CanvasComponent extends JComponent
 			{
 				tbox.getCurrentTool().mouseReleased(e);
 			}
-			System.out.println("inside mouseReleased");
+			System.out.println("inside mouseReleased " + currId);
 		}
-		
+
 	}
-	
+
 	public class MouseMotionEventListener implements MouseMotionListener
 	{
 

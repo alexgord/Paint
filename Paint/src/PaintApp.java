@@ -17,7 +17,7 @@ public class PaintApp {
 		JFrame frame = new JFrame();
 		frame.setLayout(new BorderLayout());
 		frame.add(tbox, BorderLayout.NORTH);
-		CanvasComponent canvas = new CanvasComponent(null);
+		CanvasComponent canvas = new CanvasComponent();
 		frame.setBounds(0, 0, 500, 500);
 		canvas.setBounds(tbox.getBounds());
 		canvas.setTbox(tbox);
@@ -25,7 +25,7 @@ public class PaintApp {
 		frame.add(tbox.getCanvas());
 		//Tool testTool = new Tool(ToolType.RECTANGLE);
 		//testTool.addToPicture();
-		//frame.add(canvas, BorderLayout.SOUTH);		
+		frame.add(canvas, BorderLayout.CENTER);		
 		frame.setVisible(true);
 	}
 }

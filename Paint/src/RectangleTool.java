@@ -17,12 +17,8 @@ public class RectangleTool extends RectangleBaseTool
 	@Override
 	protected void addToPicture()
 	{
-		// TODO Auto-generated method stub
 		rec = new Rectangle(this.getX1(), this.getY1(), this.getY2() - this.getY1(), this.getX2() - this.getX1(), Color.black, Color.black,1);
-		CanvasComponent tmp = new CanvasComponent(rec);
-		tmp.setBounds(tbox.getFrame().getBounds());
-		tbox.getCanvas().add(tmp);
-		tmp.setTbox(this.tbox);
+		tbox.getCanvas().add(rec);
 		this.canvasRepaint();
 		System.out.println("inside rectangle tool addtopicture");
 	}

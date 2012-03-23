@@ -58,7 +58,7 @@ public class ToolBox extends JToolBar
 		ColorButton background = new ColorButton(bgColor, 1, this);
 		this.add(background);
 		
-		this.canvas = new CanvasComponent(null);
+		//this.canvas = new CanvasComponent(null);
 	}
 	
 	public Color getFgColor()
