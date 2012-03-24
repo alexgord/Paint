@@ -19,6 +19,10 @@ public abstract class RectangleBaseTool extends Tool
 		Reset();
 	}
 
+	/****************************************************************************
+								Reset Function
+		Function resets all values needed to properly draw the next rectangle        
+	 ****************************************************************************/
 	public void Reset()
 	{
 		x1 = 0;
@@ -47,9 +51,11 @@ public abstract class RectangleBaseTool extends Tool
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
+		//Remember where we started the shape
 		x1=e.getX();
 		y1=e.getY();
 		Graphics g = tbox.getCanvas().getGraphics();
+		//Start Drawing the preview
 		g.setXORMode(Color.LIGHT_GRAY);
 		g.drawRect(x1, y1, 0, 0);
 		previousPoint.x = e.getX();
@@ -61,6 +67,7 @@ public abstract class RectangleBaseTool extends Tool
 	@Override
 	public void mouseDragged(MouseEvent e)
 	{
+		//Continue drawing the preview
 		Graphics g = tbox.getCanvas().getGraphics();
 		g.setXORMode(Color.LIGHT_GRAY);
 		// Deal with dragging from right to left, because that causes problems if you use the raw data
@@ -68,11 +75,14 @@ public abstract class RectangleBaseTool extends Tool
 		int y = Math.min(previousPoint.y, y1);
 		int height = Math.max(previousPoint.y, y1) - Math.min(previousPoint.y, y1);
 		int width = Math.max(previousPoint.x, x1) - Math.min(previousPoint.x, x1);
+		//Erase the old preview
 		g.drawRect(x, y, width, height);
+		// Deal with dragging from right to left, because that causes problems if you use the raw data
 		x = Math.min(e.getX(), x1);
 		y = Math.min(e.getY(), y1);
 		height = Math.max(e.getY(), y1) - Math.min(e.getY(), y1);
 		width = Math.max(e.getX(), x1) - Math.min(e.getX(), x1);
+		//Draw the new preview
 		g.drawRect(x, y, width, height);
 		previousPoint.x = e.getX();
 		previousPoint.y = e.getY();
@@ -81,6 +91,7 @@ public abstract class RectangleBaseTool extends Tool
 	@Override
 	public void mouseReleased(MouseEvent e)
 	{
+		//Remember where we finished drawing the shape
 		x2=e.getX();
 		y2=e.getY();
 		System.out.println("inside rectanglebasetool mouseRealeased");
@@ -91,7 +102,6 @@ public abstract class RectangleBaseTool extends Tool
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-
 	}
 
 	@Override

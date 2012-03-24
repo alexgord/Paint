@@ -11,31 +11,32 @@ import javax.swing.JComponent;
 public class CanvasComponent extends JComponent
 {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Paintable> paintables;
+	private ArrayList<Paintable> paintables; //all elements are painted
 	private ToolBox tbox;
 
-	private static int id = 0;
 	private int currId;
 
-	public ToolBox getTbox() {
+	public ToolBox getTbox()
+	{
 		return tbox;
 	}
 
-	public void setTbox(ToolBox tbox) {
+	public void setTbox(ToolBox tbox)
+	{
 		this.tbox = tbox;
 	}
 
-	public CanvasComponent() //Paintable paintable)
+	public CanvasComponent()
 	{
 		super();
-		this.currId = id++;
 		this.paintables = new ArrayList<Paintable>();		
 		this.addMouseListener(new MouseEventListener());
 		this.addMouseMotionListener(new MouseMotionEventListener());
 		System.out.println("in CanvasComponent constructor");
 	}
 
-	public void add(Paintable p) {
+	public void add(Paintable p)
+	{
 		paintables.add(p);
 	}
 
@@ -55,8 +56,8 @@ public class CanvasComponent extends JComponent
 	{
 
 		@Override
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
+		public void mouseClicked(MouseEvent e)
+ {
 			if (tbox.getCurrentTool() != null)
 			{
 				tbox.getCurrentTool().mouseClicked(e);
@@ -66,22 +67,20 @@ public class CanvasComponent extends JComponent
 		}
 
 		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			//tbox.getCurrentTool().mouseEntered(e);
+		public void mouseEntered(MouseEvent e)
+		{
 			System.out.println("inside mouseEntered");
 		}
 
 		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			//tbox.getCurrentTool().mouseExited(e);
+		public void mouseExited(MouseEvent e)
+		{
 			System.out.println("inside mouseExited");
 		}
 
 		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+		public void mousePressed(MouseEvent e)
+		{
 			if (tbox.getCurrentTool() != null)
 			{
 				tbox.getCurrentTool().mousePressed(e);
@@ -90,8 +89,8 @@ public class CanvasComponent extends JComponent
 		}
 
 		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
+		public void mouseReleased(MouseEvent e)
+		{
 			if (tbox.getCurrentTool() != null)
 			{
 				tbox.getCurrentTool().mouseReleased(e);
@@ -105,8 +104,8 @@ public class CanvasComponent extends JComponent
 	{
 
 		@Override
-		public void mouseDragged(MouseEvent e) {
-			// TODO Auto-generated method stub
+		public void mouseDragged(MouseEvent e)
+		{
 			if (tbox.getCurrentTool() != null)
 			{
 				tbox.getCurrentTool().mouseDragged(e);
@@ -115,8 +114,8 @@ public class CanvasComponent extends JComponent
 		}
 
 		@Override
-		public void mouseMoved(MouseEvent e) {
-			// TODO Auto-generated method stub
+		public void mouseMoved(MouseEvent e)
+		{
 			if (tbox.getCurrentTool() != null)
 			{
 				tbox.getCurrentTool().mouseMoved(e);

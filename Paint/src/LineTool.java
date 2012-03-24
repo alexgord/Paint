@@ -6,6 +6,11 @@ public class LineTool extends RectangleBaseTool
 		super(tbox);
 	}
 
+	/****************************************************************************
+							addToPicture Function
+			Function adds a line shape to the toolbox's canvas
+			so that it may be drawn to the screen.
+	 ****************************************************************************/
 	@Override
 	protected void addToPicture()
 	{		

@@ -26,14 +26,14 @@ public class Rectangle implements Paintable
 		this.strokeWidth = strokeWidth;
 	}
 
-	@Override
+	
 	/****************************************************************************
 								paint Function
 		Function paints a rectangle to the screen using the java SWING library        
 	 ****************************************************************************/
+	@Override
 	public void paint(Graphics g)
 	{
-		// TODO Auto-generated method stub
 		Graphics2D g2 = (Graphics2D)g;		
 		
 		if (fillColor != null)
@@ -47,5 +47,4 @@ public class Rectangle implements Paintable
 		g2.setColor(this.strokeColor);
 		g2.draw(outline);	
 	}
-
 }

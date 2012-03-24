@@ -9,7 +9,7 @@ abstract public class Tool
 	{
 		this.tbox = tbox;
 	}
-	
+
 	public void canvasRepaint()
 	{
 		tbox.getCanvas().repaint();

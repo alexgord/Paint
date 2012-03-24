@@ -6,6 +6,11 @@ public class RectangleTool extends RectangleBaseTool
 		super(tbox);
 	}
 
+	/****************************************************************************
+							addToPicture Function
+			Function adds a rectangle shape to the toolbox's canvas
+			so that it may be drawn to the screen.
+	 ****************************************************************************/
 	@Override
 	protected void addToPicture()
 	{
