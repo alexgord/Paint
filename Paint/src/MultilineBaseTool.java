@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -5,6 +7,7 @@ import java.util.ArrayList;
 public abstract class MultilineBaseTool extends Tool
 {
 	private Point lastPoint;
+	private Point lastPointMoved;
 	private ArrayList<Integer> xValues;
 	private ArrayList<Integer> yValues;
 	public MultilineBaseTool(ToolBox tbox)
@@ -12,14 +15,15 @@ public abstract class MultilineBaseTool extends Tool
 		super(tbox);
 		Reset();
 	}
-	
+
 	private void Reset()
 	{
 		lastPoint = new Point(-1,-1);
+		lastPointMoved = new Point(-1,-1);
 		xValues = new ArrayList<Integer>();
 		yValues = new ArrayList<Integer>();
 	}
-	
+
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
@@ -41,6 +45,11 @@ public abstract class MultilineBaseTool extends Tool
 			System.out.println("equal");
 			Reset();
 		}
+		Graphics g = tbox.getCanvas().getGraphics();
+		g.setXORMode(Color.LIGHT_GRAY);
+		g.drawLine(e.getX(),e.getY(), e.getX(), e.getY());
+		lastPointMoved.x = lastPoint.x;
+		lastPointMoved.y = lastPoint.y;
 		System.out.println("inside multilinebasetool mouseClicked");
 	}
 
@@ -75,7 +84,15 @@ public abstract class MultilineBaseTool extends Tool
 	@Override
 	public void mouseMoved(MouseEvent e)
 	{
-
+		if (lastPoint.x != -1 || lastPoint.y != -1)
+		{
+			Graphics g = tbox.getCanvas().getGraphics();
+			g.setXORMode(Color.LIGHT_GRAY);
+			g.drawLine(lastPoint.x,lastPoint.y, lastPointMoved.x, lastPointMoved.y);
+			g.drawLine(lastPoint.x,lastPoint.y, e.getX(), e.getY());
+			lastPointMoved.x = e.getX();
+			lastPointMoved.y = e.getY();
+		}
 	}
 
 }

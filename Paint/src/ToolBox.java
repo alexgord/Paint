@@ -118,6 +118,7 @@ public class ToolBox extends JToolBar
 			break;
 		case POLYGON:
 			System.out.println("POLYGON!!");
+			currentTool = new PolyGonTool(this);
 			break;
 		}
 	}
